@@ -56,14 +56,16 @@ class Solution:
             return 0
        
 def shortest_path(graph, current_node, distance, shortest):
-    print(current_node)
+    print("currentNode",current_node)
+    result= graph[current_node]
     if current_node == "Finish":
         if distance <= shortest or shortest == 0:
             return distance
         else:
             return shortest
+    elif len(result) == None:
+        return 99999999
     else:
-        result= graph[current_node]
         for x in result:
             return shortest_path(graph, x, graph[x], shortest) + distance
          
