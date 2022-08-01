@@ -58,7 +58,7 @@ class Solution:
 def shortest_path(graph, current_node, distance, shortest):
     print("currentNode",current_node)
     result= graph[current_node]
-    if current_node == "Finish":
+    if current_node == " Finish":
         if distance <= shortest or shortest == 0:
             return distance
         else:
