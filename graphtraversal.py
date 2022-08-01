@@ -50,7 +50,7 @@ class Solution:
     def spath_algo(self, graph):
         # type graph: dict
         # return type: int (shortest path as an int)
-        if len(graph) >= 2 and graph != null:
+        if len(graph) >= 2 and graph != None:
             return shortest_path(graph, "Start", 0, 0)
         else:
             return 0
