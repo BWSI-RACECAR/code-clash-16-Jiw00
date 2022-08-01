@@ -50,12 +50,13 @@ class Solution:
     def spath_algo(self, graph):
         # type graph: dict
         # return type: int (shortest path as an int)
-        if len(graph) >= 2:
+        if len(graph) >= 2 and graph != null:
             return shortest_path(graph, "Start", 0, 0)
         else:
             return 0
        
 def shortest_path(graph, current_node, distance, shortest):
+    print(current_node)
     if current_node == "Finish":
         if distance <= shortest or shortest == 0:
             return distance
