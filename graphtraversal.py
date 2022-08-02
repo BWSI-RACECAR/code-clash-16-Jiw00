@@ -50,24 +50,42 @@ class Solution:
     def spath_algo(self, graph):
         # type graph: dict
         # return type: int (shortest path as an int)
-        if len(graph) >= 2 and graph != None:
-            return shortest_path(graph, "Start", 0, 0)
-        else:
-            return 0
-       
-def shortest_path(graph, current_node, distance, shortest):
-    print("currentNode",current_node)
-    result= graph[current_node]
-    if current_node == " Finish":
-        if distance <= shortest or shortest == 0:
-            return distance
-        else:
-            return shortest
-    elif len(result) == None:
-        return 99999999
-    else:
-        for x in result:
-            return shortest_path(graph, x, graph[x], shortest) + distance
+                unvisited = []
+        nodes = []
+        for node, _ in graph.items():
+            unvisited.append(node)
+            nodes.append(node)
+        
+        shortest = {}
+        previous = {}
+
+        max_value = 1000000
+        for node in unvisited:
+            shortest[node] = max_value
+        shortest["Start"] = 0
+
+        while unvisited:
+            current_min = None
+            for node in unvisited:
+                if current_min == None:
+                    current_min = node
+                elif shortest[node] < shortest[current_min]:
+                    current_min = node
+
+            neighbors = []
+
+            for next in graph[current_min]:
+                neighbors.append(next)
+
+            for neighbor in neighbors:
+                tentaitive = shortest[current_min] + graph[current_min][neighbor]
+                if tentaitive < shortest[neighbor]:
+                    shortest[neighbor] = tentaitive
+                    previous[neighbor] = current_min
+            
+            unvisited.remove(current_min)
+
+        return shortest['Finish']   
          
         
 
