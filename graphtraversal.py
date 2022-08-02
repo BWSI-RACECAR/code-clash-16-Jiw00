@@ -45,12 +45,15 @@ Constraints:
 
 """
 
+
+
+
 class Solution:
     
     def spath_algo(self, graph):
         # type graph: dict
         # return type: int (shortest path as an int)
-                unvisited = []
+        unvisited = []
         nodes = []
         for node, _ in graph.items():
             unvisited.append(node)
@@ -85,9 +88,7 @@ class Solution:
             
             unvisited.remove(current_min)
 
-        return shortest['Finish']   
-         
-        
+        return shortest['Finish']        
 
 def main():
     tc1 = Solution()
