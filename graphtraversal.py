@@ -53,6 +53,7 @@ class Solution:
     def spath_algo(self, graph):
         # type graph: dict
         # return type: int (shortest path as an int)
+        graph['Finish'] = {}
         unvisited = []
         nodes = []
         for node, _ in graph.items():
